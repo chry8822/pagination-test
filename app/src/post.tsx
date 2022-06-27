@@ -38,6 +38,7 @@ const Posts = () => {
 
     const viewPointRef = useRef<HTMLDivElement>(null)
     // 페이지 변경시 
+
     const [posts, setPosts] = useState([]);
     // 게시물 데이터
     const [limit, setLimit] = useState(10);
@@ -82,7 +83,7 @@ const Posts = () => {
                     value={limit}
                     onChange={(e)=>{
                         const value = e.target.value
-                        setPage(Number(value))
+                        setLimit(Number(value))
                     }}
                     // onChange={({ target: {value} }) => setLimit(Number(value))}
                     // onChange에 event가 들어오고 event안에 target 이 있고
@@ -110,6 +111,7 @@ const Posts = () => {
                         <p>{body}</p>
                     </article>
                 ))}
+                {/* 페이지당 보여질 게시물 렌더링(limit = 보여질 갯수, offset = 게시물 시작 위치) */}
             </main>
             {/* 
                 2페이지 기준 
